@@ -1,8 +1,4 @@
-#!/usr/bin/env python
 # coding: utf-8
-
-# In[ ]:
-
 
 import numpy as np
 
@@ -27,39 +23,44 @@ class Board(object):
     '''显示棋盘，参数是棋盘矩阵'''        
     def oxshow(self):
         '''打印列标号'''
-        print('    ', end='') # 5个空格
+        print(' x\y ', end='') # 5个字符
         for j in range(self.width):
             if j <10:
-                print('   %d '%(j+1), end='')
+                print('  %d  '%(j+1), end='') # 5个字符
             elif j <100:
-                print('  %d'%(j+1), end='')
+                print('  %d '%(j+1), end='')
         print('')  # 换行
-        '''打印分割线'''
+        '''打印空行'''
+        '''
         print('    ', end='')# 5个空格
         for j in range(self.width):
             print('    ', end='')
+        '''
         print('')
         
         '''打印棋盘'''            
         for i in range(self.height):        #行数
             '''打印行标号'''
             if i <10:
-                print('  %d  '%(i+1), end='' )
+                print('  %d  '%(i+1), end='' ) # 5个字符
             elif i*self.width+j <100:
                 print('  %d '%(i+1), end='' )
             '''打印该行棋盘'''    
             for j in range(self.width):
-                if self.ox[i][j] == 0:    #未落子
-                    print(' ~  ', end='')
-                elif self.ox[i][j] == 1:   # x 落子
-                    print(' X  ', end='')
+                if self.ox[i][j] == 0:    #未落子  5个字符
+                    print('  ~  ', end='')
+                elif self.ox[i][j] == 1:   # x 落子  5个字符
+                    print('  X  ', end='')
                 elif self.ox[i][j] == -1:  # o 落子
-                    print(' O  ', end='') 
+                    print('  O  ', end='') 
             print('')
-            '''打印分割线'''
+            
+            '''打印空行'''
+            '''
             print('    ', end='')# 5个空格
             for j in range(self.width):
                 print('    ', end='')
+            '''
             print('')                    
                 
  
@@ -88,11 +89,11 @@ class Board(object):
             if self.nmatrixwinner(nm) != 0:
                 return self.nmatrixwinner(nm) 
         
-        '''若所有ninline维方阵返回都是0，且已经没有可落子处，则返回2代表平局，0代表未结束'''
+        '''若所有ninline维方阵返回都是0，且已经没有可落子处，则返回0代表平局，2代表未结束'''
         if not self.ox_available:
-            return 2
+            return 0
         else:
-            return 0       
+            return 2       
       
     
     '''# player在location(x,y)处落子，更新棋盘，,更新可用位置，计算此时棋局胜负'''
@@ -114,18 +115,3 @@ class Board(object):
     '''为AI返回一个可以选择落子的集合'''
     def oxavailable(self):
         return self.ox_available
-    
-    
-
-
-# In[2]:
-
-
-
-
-
-# In[ ]:
-
-
-
-

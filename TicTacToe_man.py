@@ -15,18 +15,18 @@ while True :
     
     if xo.update(player, playlocation ):
         if xo.oxstates() == 1:
-            print('选手X 赢')
+            print('    选手X 赢')
             xo.oxshow()
             break
         elif xo.oxstates() == -1:
-            print('选手O 赢')
-            xo.oxshow()
-            break
-        elif xo.oxstates() == 2:
-            print('平局')
+            print('    选手O 赢')
             xo.oxshow()
             break
         elif xo.oxstates() == 0:
+            print('    平局')
+            xo.oxshow()
+            break
+        elif xo.oxstates() == 2:
             player = 'o' if player == 'x' else 'x'
             
     
