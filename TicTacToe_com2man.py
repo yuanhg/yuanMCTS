@@ -85,7 +85,12 @@ def update(ox, player, location):
 ''' # 3 x 3 矩阵，值是棋子类型，0空，1代表'x'，-1代表'o'; ''' 
 ttt = np.zeros((3, 3), dtype=int )
 ttt_availables = set( [(i,j) for i in range(3) for j in range(3)] )  
-player = 'x'
+
+while True:
+    print('请选择先手，o电脑先，x选手先：')
+    player = input()
+    if player == 'x' or player == 'o':
+        break
 
 while True :
 
