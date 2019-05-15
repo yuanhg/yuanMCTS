@@ -3,7 +3,7 @@ import numpy as np
 import itertools
 
 
-board = 6   #默认围棋19大小的棋盘
+board = 4   #默认围棋19大小的棋盘
 
 a_point = set( [(i,j) for i in range(board) for j in range(board)] )
 
